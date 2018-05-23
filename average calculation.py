@@ -27,14 +27,33 @@ def get_average(student):
   homework = average(student["homework"])
   quizzes = average(student["quizzes"])
   tests = average(student["tests"])
-  return 0.1 * homework + 0.3 * quizzes + 0.6 * tests
-students=[lloyd,alice,tyler]
+  av= 0.1 * homework + 0.3 * quizzes + 0.6 * tests
+  print av
+  print get_letter_grade(av)
+  return  0.1 * homework + 0.3 * quizzes + 0.6 * tests
+def get_letter_grade(score):
+  if score >= 90:
+    return "A"
+  elif score >=80:
+    print "B"
+  elif score >=70:
+    return "C"
+  elif score >=60:
+    return "D"
+  else:
+    return "F"
+
 def get_class_average(class_list):
   results = []
   for student in class_list:
     student_avg = get_average(student)
     results.append(student_avg)
-    print "%s's average is %s"%          (student["name"],student_avg)
-    u=average(results)
-  print ("the class average is %s"%u)
-get_class_average(students)
+  print results
+  f=average(results)
+  print f
+  return get_letter_grade(f)
+  return average(results)
+
+students = [lloyd, alice, tyler]
+#print get_average(students)
+print get_class_average(students)
